@@ -1,0 +1,212 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns:margin-left="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <title>The Goal</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+
+  <style>
+    .container{
+
+    }
+    .bcontent {
+      margin-top: 10px;
+
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: large;
+    }
+
+    #123{
+      min-height: 100vh;
+    }
+
+
+
+    footer {
+      background: #16222A;
+      background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+      background: linear-gradient(59deg, #3A6073, #16222A);
+      color: white;
+      margin-top: 100px;
+    }
+
+    footer a {
+      color: #fff;
+      font-size: 14px;
+      transition-duration: 0.2s;
+    }
+
+    footer a:hover {
+      color: #FA944B;
+      text-decoration: none;
+    }
+    body{
+      background-color: #BAFFB7;
+      overflow: auto;
+      background-size: contain;
+    }
+
+    .copy {
+      font-size: 12px;
+      padding: 10px;
+      border-top: 1px solid #FFFFFF;
+    }
+
+    .footer-middle {
+      padding-top: 2em;
+      color: white;
+    }
+
+  </style>
+
+</head>
+<header>
+  <nav class="navbar navbar-dark bg-success" id="titel">
+    <a class="navbar-brand" href="#">The Goal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">The Goal <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="video.html">Video</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="information.html">Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="kommentare.html">Kommentare</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<body>
+<div id="respond">
+
+  <ol id="posts-list" class="hfeed<?php echo($has_comments?' has-comments':’); ?>">
+    <li class="no-comments">Be the first to add a comment.</li>
+    <?php
+    foreach ($comments as $comment) {
+      ?>
+    <li><article id="comment_<?php echo($comment['id']); ?>" class="hentry">
+      <footer class="post-info">
+        <abbr class="published" title="<?php echo($comment['date']); ?>">
+          <?php echo( date('d F Y', strtotime($comment['date']) ) ); ?>
+        </abbr>
+
+        <address class="vcard author">
+          By <a class="url fn" href="#"><?php echo($comment['comment_author']); ?></a>
+        </address>
+      </footer>
+
+      <div class="entry-content">
+        <p><?php echo($comment['comment']); ?></p>
+      </div>
+    </article></li>
+    <?php
+    }
+  ?>
+  </ol>
+
+  <h3>Leave a Comment</h3>
+
+  <form action="post_comment.php" method="post" id="commentform">
+
+    <label for="comment_author" class="required">Your name</label>
+    <input type="text" name="comment_author" id="comment_author" value="" tabindex="1" required="required">
+
+    <label for="email" class="required">Your email;</label>
+    <input type="email" name="email" id="email" value="" tabindex="2" required="required">
+
+    <label for="comment" class="required">Your message</label>
+    <textarea name="comment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
+
+
+    <input type="hidden" name="comment_post_ID" value="<?php echo($comment_post_ID); ?>" id="comment_post_ID" />
+
+    <input name="submit" type="submit" value="Submit comment" />
+
+
+  </form>
+
+</div>
+</body>
+
+<footer class="bg-light text-center text-lg-start">
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Vielen Dank</h5>
+
+        <p>
+          Vielen Dank, dass Sie diese Webseite besuchen. Hier finden Sie alles, was Sie über
+          den Trailer von The Goal wissen müssen.
+        </p>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="index.html" class="badge badge-success">The Goal</a>
+          </li>
+          <li>
+            <a href="video.html" class="badge badge-success">Video</a>
+          </li>
+          <li>
+            <a href="information.html" class="badge badge-success">Information</a>
+          </li>
+          <li>
+            <a href="kommentare.html" class="badge badge-success">Kommentare</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2020 Copyright:
+    <p>Brenden Jose</p>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+</html>
