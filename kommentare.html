@@ -81,7 +81,6 @@
       color: white;
     }
 
-
   </style>
 
 </head>
@@ -111,62 +110,70 @@
 </header>
 
 <body>
-<div id="respond">
-
-  <ol id="posts-list" class="hfeed<?php echo($has_comments?' has-comments':’); ?>">
-    <li class="no-comments">Be the first to add a comment.</li>
-    <?php
-    foreach ($comments as $comment) {
-      ?>
-    <li><article id="comment_<?php echo($comment['id']); ?>" class="hentry">
-      <footer class="post-info">
-        <abbr class="published" title="<?php echo($comment['date']); ?>">
-          <?php echo( date('d F Y', strtotime($comment['date']) ) ); ?>
-        </abbr>
-
-        <address class="vcard author">
-          By <a class="url fn" href="#"><?php echo($comment['comment_author']); ?></a>
-        </address>
-      </footer>
-
-      <div class="entry-content">
-        <p><?php echo($comment['comment']); ?></p>
-      </div>
-    </article></li>
-    <?php
-    }
-  ?>
-  </ol>
-
-  <h3>Leave a Comment</h3>
-
-  <form action="post_comment.php" method="post" id="commentform">
-
-    <label for="comment_author" class="required">Your name</label>
-    <input type="text" name="comment_author" id="comment_author" value="" tabindex="1" required="required">
-
-    <label for="email" class="required">Your email;</label>
-    <input type="email" name="email" id="email" value="" tabindex="2" required="required">
-
-    <label for="comment" class="required">Your message</label>
-    <textarea name="comment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
-
-
-    <input type="hidden" name="comment_post_ID" value="<?php echo($comment_post_ID); ?>" id="comment_post_ID" />
-
-    <input name="submit" type="submit" value="Submit comment" />
-
-
+<section id="kommentar">
+  <h2>Kommentare</h2>
+  <div class="media">
+    <img src="https://placehold.it/64x64" alt = "Media object image">
+    <div class="media-body">
+      <p><a href="mailto:example@domain.com">Robin Jose</a> (Posted on: <time datetime="2017-03-12T10:24">January 20, 2021 at 10:24 AM</time>)</p>
+      <p>Vielen Dank für die Informationen.</p>
+    </div>
+  </div>
+  <hr>
+  <div class="media">
+    <img src="https://placehold.it/64x64" alt = "Media object image">
+    <div class="media-body">
+      <p><a href="mailto:example@domain.com">Brenden Jose</a> (Posted on: <time datetime="2017-03-12T10:24">January 20, 2021 at 10:24 AM</time>)</p>
+      <p>Kein Problem</p>
+    </div>
+  </div>
+  <hr>
+  <div class="media">
+    <img src="https://placehold.it/64x64" alt = "Media object image">
+    <div class="media-body">
+      <p><a href="mailto:example@domain.com">Brenden Jose</a> (Posted on: <time datetime="2017-03-12T10:24">January 20, 2021 at 10:26 AM</time>)</p>
+      <p>Bitte Filmfestival auch besuchen. Wir sehen uns dann dort.</p>
+    </div>
+  </div>
+  <div class="media">
+    <img src="https://placehold.it/64x64" alt = "Media object image">
+    <div class="media-body">
+      <p><a href="mailto:example@domain.com">Brenden Jose</a> (Posted on: <time datetime="2017-03-12T10:24">January 20, 2021 at 10:28 AM</time>)</p>
+      <p>Danke, dass ihr alle die Webseite besucht.</p>
+    </div>
+  </div>
+  <div class="media">
+    <img src="https://placehold.it/64x64" alt = "Media object image">
+    <div class="media-body">
+      <p><a href="mailto:example@domain.com">Brayen Jose</a> (Posted on: <time datetime="2017-03-12T10:24">January 20, 2021 at 10:29 AM</time>)</p>
+      <p>Irgendetwas ist hier einfach nur etwas.</p>
+    </div>
+  </div>
+  <hr>
+  <form>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" placeholder="Name" id = "name" name="name" requiered>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" placeholder="Email" id = "email" name="email" requiered>
+    </div>
+    <div class="form-group">
+      <label for="comment">Kommentiere:</label>
+      <textarea class="form-control" id="comment" name="comment" rows="5" placeholder="Hier Kommentar schreiben, danke: Maximal 500 Zeichen" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Senden</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
   </form>
-
-</div>
+</section>
 </body>
 
 <footer class="bg-light text-center text-lg-start">
   <div class="container p-4">
-
+    <!--Grid row-->
     <div class="row">
-
+      <!--Grid column-->
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase">Vielen Dank</h5>
 
@@ -175,7 +182,9 @@
           den Trailer von The Goal wissen müssen.
         </p>
       </div>
+      <!--Grid column-->
 
+      <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Links</h5>
 
